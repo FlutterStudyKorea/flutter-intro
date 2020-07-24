@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() => runApp(MyApp());
 
@@ -218,23 +219,9 @@ class Grade extends StatelessWidget {
                 )
               ],
             ),
-            Builder(builder: (BuildContext childContext) {
-              return Center(
-                child: FlatButton(
-                  child: Text('show Me',
-                    style: TextStyle(
-                        color: Colors.white
-                    ),
-                  ),
-                  color: Colors.redAccent,
-                  onPressed: (){
-                      //현재 주어진 context 에서 위로 올라가면서, 가장 가까운 Scaffold를 찾아 반환해라
-                      //Something.of(context)
-                  showSnackBar("flat button clicked", childContext);
-                  },
-                ),
-              );
-            },)
+            Center(
+              child: MySnackBar(),
+            ),
           ],
         ),
       ),
@@ -242,8 +229,29 @@ class Grade extends StatelessWidget {
   }
 }
 
+class MySnackBar extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      child: Text('Show me'),
+      onPressed: () {
+        showSnackBar('show me', context);
+      },
+    );
+  }
+}
+
 
 void showSnackBar(String msg, BuildContext context){
   Scaffold.of(context).showSnackBar(
-      SnackBar(content: Text(msg)));
+      SnackBar(content: Text(msg,
+      textAlign: TextAlign.center,
+      style: TextStyle(
+        color: Colors.white,
+      ),
+      ),
+        backgroundColor: Colors.teal,
+        duration: Duration(milliseconds:5000),
+      ),
+  );
 }
