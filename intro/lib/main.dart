@@ -220,7 +220,13 @@ class Grade extends StatelessWidget {
               ],
             ),
             Center(
-              child: MySnackBar(),
+              child: FlatButton(
+                onPressed: (){
+                  showToast();
+                },
+                child: Text('Toast msg'),
+                color: Colors.blueGrey,
+              ),
             ),
           ],
         ),
@@ -241,6 +247,15 @@ class MySnackBar extends StatelessWidget {
   }
 }
 
+void showToast(){
+  Fluttertoast.showToast(msg: 'flutter toast msg',
+    gravity: ToastGravity.BOTTOM,
+    backgroundColor: Colors.red,
+    fontSize: 20.0,
+    textColor: Colors.white,
+    toastLength: Toast.LENGTH_SHORT,
+  );
+}
 
 void showSnackBar(String msg, BuildContext context){
   Scaffold.of(context).showSnackBar(

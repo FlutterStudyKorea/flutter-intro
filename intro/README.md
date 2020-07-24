@@ -56,9 +56,19 @@ The context used was: Grade (부모위젯이 호출되었음을 확인할 수 �
 
 ` Builder Wiget 없이 사용하는 법은 없을까 ?`  >> **클래스를 생성하자**
 
-<img src="/Users/jeongsehee/Library/Application Support/typora-user-images/image-20200724181032169.png" alt="image-20200724181032169" style="zoom: 50%;" />
+<img src="https://user-images.githubusercontent.com/39688690/88379289-a05ae780-cddd-11ea-976b-84e143602e77.png" alt="image" style="zoom:50%;" />
 
 
 
-### Toast Msg
+
+
+**Toast Dependency setting 시 주의사항**
+
+1. Could not resolve the package 'fluttertoast'....
+
+- flutter doctor 시 설정 정보 error or warning 을 해결 하면, 이 문제는 자동으로 해결....
+
+2. MissingPluginException(No implementation found for method showToast on channel...)
+
+* hot reload 말고, 자체적으로 에뮬레이터 재시작하기
 
