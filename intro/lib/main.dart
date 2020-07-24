@@ -218,19 +218,30 @@ class Grade extends StatelessWidget {
                 )
               ],
             ),
-            Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('assets/daco.png'),
-                radius: 40.0,
-                backgroundColor: Colors.transparent,
-              ),
-            ),
+            Builder(builder: (BuildContext childContext) {
+              return Center(
+                child: FlatButton(
+                  child: Text('show Me',
+                    style: TextStyle(
+                        color: Colors.white
+                    ),
+                  ),
+                  color: Colors.redAccent,
+                  onPressed: (){
+                      //현재 주어진 context 에서 위로 올라가면서, 가장 가까운 Scaffold를 찾아 반환해라
+                      //Something.of(context)
+                  showSnackBar("flat button clicked", childContext);
+                  },
+                ),
+              );
+            },)
           ],
         ),
       ),
     );
   }
 }
+
 
 void showSnackBar(String msg, BuildContext context){
   Scaffold.of(context).showSnackBar(
